@@ -1,0 +1,21 @@
+body {
+  background-color: rgb(209, 209, 162);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.info {
+  font-size: 12px;
+  color: rgb(47, 47, 96);
+}
+
+#sign-up {
+  background-color: rgb(239, 243, 193);
+  border: 5px solid rgb(203, 228, 204);
+  width: 280px;
+}
