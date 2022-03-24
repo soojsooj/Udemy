@@ -21,7 +21,6 @@ console.log(document.querySelector('.guess').value);
 
 //define the secret number
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
-
 //Score
 let score = 20;// can't be const.
 //store high score
@@ -29,7 +28,7 @@ let highscore = 0;
 
 
 //Check btn & messages
-document.querySelector('.check').addEventListener('click', function() {
+document.querySelector('.check').addEventListener('click', function() {  
    const guess = Number(document.querySelector('.guess').value);
    console.log(guess, typeof guess);
 
@@ -39,6 +38,7 @@ document.querySelector('.check').addEventListener('click', function() {
    } else if(guess === secretNumber) {
        document.querySelector('.message').textContent = "Correct Number!🥳"
        document.querySelector('.number').textContent = secretNumber;
+
        document.querySelector('body').style.backgroundColor = '#60b347';
        document.querySelector('.number').style.width = '30rem';
     //highscore
@@ -46,8 +46,22 @@ document.querySelector('.check').addEventListener('click', function() {
         highscore = score;
         document.querySelector('.highscore').textContent = highscore;
        }
+    //when guess is different from secretNumber.
+    } else if(guess !== secretNumber) {
+        if(score > 1 ) {
+            document.querySelector('.message').textContent = guess > secretNumber ? "Too high!🤪" : "Too low!🤪";//ternary operator. [Syntax] condition ? expreIfTrue : expreIfFalse
+            score--; // score = score - 1;
+        //Display the score
+            document.querySelector('.score').textContent = score; 
+        } else { 
+            document.querySelector('.message').textContent = 'You lost!😞';
+            document.querySelector('.score').textContent = 0;
+        } 
+    }
+
+    /*
     //when guess is too high.
-   } else if(guess > secretNumber) {
+    else if(guess > secretNumber) {
        if(score > 1 ) {
         document.querySelector('.message').textContent = "Too high!🤪";
         score--; // score = score - 1;
@@ -68,6 +82,7 @@ document.querySelector('.check').addEventListener('click', function() {
         document.querySelector('.score').textContent = 0;
        }   
    } 
+   */
 });//should tell EventListner what to do in the second value as an argument. 
 //JS calls the fucntion only when Event happens.
 
